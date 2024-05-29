@@ -15,7 +15,7 @@ class EvaluationConfig(Dict):
         self.num_scenes_per_batch = 2
         self.num_scenes_to_evaluate = 2
 
-        self.num_episode_repeats = 1
+        self.num_episode_repeats = 20
         self.start_frame_index_each_episode = None  # if specified, should be the same length as num_episode_repeats
         self.seed_each_episode = None  # if specified, should be the same length as num_episode_repeats
 
@@ -76,7 +76,7 @@ class EvaluationConfig(Dict):
         self.cvae.rolling = True
         self.cvae.rolling_horizon = [5,10,20]
 
-        self.nusc.eval_scenes = np.arange(0,100).tolist()
+        self.nusc.eval_scenes = np.arange(0,1).tolist()
         self.nusc.n_step_action = 2
         self.nusc.num_simulation_steps = 200
         self.nusc.skip_first_n = 0
@@ -92,7 +92,7 @@ class EvaluationConfig(Dict):
         self.l5kit.skip_first_n = 1
         self.l5kit.skimp_rollout = False
 
-        self.adjustment.enabled = False
+        self.adjustment.enabled = True
         self.adjustment.random_init_plan=False
         self.adjustment.remove_existing_neighbors = False
         self.adjustment.initial_num_neighbors = 4
